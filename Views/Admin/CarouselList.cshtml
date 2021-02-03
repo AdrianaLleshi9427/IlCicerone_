@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "CarouselList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    Carousel Images
+                </div>
+                <div class="card-body">
+                    <div class="card-header header-style">
+                        @using (Html.BeginForm("CarouselList", "Admin", FormMethod.Get))
+                        {
+                            <input type="text" name="txtSearch" placeholder="Search" />
+                            <button type="submit" class="btn-warning-admin">Search</button>
+                        }
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>URL</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Link</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @foreach (var guide in ViewBag.Carousels)
+                            {
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>
+                                        <img style="width: 100px; height: auto;" alt="@guide.Title" src="@Url.Content("~/CarouselImg/" + @guide.URL)" />
+                                    </td>
+                                    <td>@guide.Title</td>
+                                    <td>@guide.Description</td>
+                                    <td>@guide.Link_destination</td>
+                                    <td><a href="@Url.Action("EditCarousel","Admin",new {id=guide.Id})" class="badge badge-warning">Modify</a></td>
+                                    <td><a href="@Url.Action("DeleteCarousel","Admin",new {id=guide.Id})" class="badge badge-danger">Remove</a></td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                    <div class="card-footer">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                @{
+                                    int position;
+                                    int pageCurrent = ViewBag.pageCurrent;
+                                    string txtSearch = ViewBag.txtSearch;
+                                    float numSize = ViewBag.numSize;
+                                    if (pageCurrent > 1)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("CarouselList", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                        </li>
+                                    }
+                                    for (position = 1; position <= numSize; position++)
+                                    {
+                                        if (position == pageCurrent)
+                                        {
+                                            <li class="page-item active"><a class="page-link" href="@Url.Action("CarouselList", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="@Url.Action("CarouselList", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                        }
+                                    }
+                                    if (pageCurrent > 0 && pageCurrent < numSize)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("CarouselList", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

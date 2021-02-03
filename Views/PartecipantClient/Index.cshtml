@@ -1,0 +1,25 @@
+﻿@model IlCicerone.Models.Tour
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+    <!-- ======= Contact Section ======= -->
+    <section>
+        <div class="container" style="padding-top:50px;">
+            <h2>Partecipants for @Model.TourName</h2>
+
+            @Html.Partial("_Partecipants", @Model.Partecipants)
+
+        <p>
+            <a href="@Url.Action("Create", "PartecipantClient", new { TourId = Model.TourId })" class="btn btn-success">
+                Add New Partecipant
+            </a>
+            <a href="@Url.Action("Checkout", "Home", new { nrPartecipanti = ViewBag.CountPartecipant, TourId = Model.TourId })" class="btn btn-default" style="float:right;">
+                Proceed to Checkout
+            </a>
+        </p>
+            </div>
+</section>
+</main>

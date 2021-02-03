@@ -1,0 +1,248 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    string txtSearch = ViewBag.txtSearch;
+}
+
+<link href="~/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="~/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/web/js/responsiveslides.min.js"></script>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide -->
+            @{
+                var i = 0;
+                foreach (var item in ViewBag.Carousels)
+                {
+                    var itemClass = i++ == 0 ? "carousel-item active" : "carousel-item";
+                    <div class="@itemClass" style="background-image: url(../Sailor/assets/img/slide/@item.URL)">
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">@item.Title</h2>
+                                <p class="animate__animated animate__fadeInUp">@item.Description</p>
+                                <a href=@item.Link_destination class="btn-get-started animate__animated animate__fadeInUp scrollto">Leggi di piu</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div>
+</section><!-- End Hero -->
+<section class="search-tour">
+    @using (Html.BeginForm("Tour", "Home", FormMethod.Get))
+    {
+        <input type="text" class="search-input" name="country" id="country" placeholder="Type country..." autocomplete="on" />
+        <button type="submit" class="btns orange square minWidth200">Find a Tour</button>
+    }
+</section>
+<section>
+    <div class="lvtBanner">
+        <div class="row">
+            <div class="columns-12 text-center">
+                <div class="lvtBannerHolder">
+                    <p class="lead text-center lvtBannerText">
+                        Take a <span class="lvtBannerText green-weight-700">Full Tour</span>, to search the best offers you are looking for!
+                    </p>
+                </div>
+                <div class="lvtBannerHolder paddingLeft100 paddingBottom20">
+                    <a class="btns green flat-square" href='@Url.Action("Tour", "Home")'>View Tours</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="section-title">
+            <h2>Portfolio</h2>
+            <p>Tour Recenti</p>
+        </div>
+        @*<div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">Tutti</li>
+                    <li data-filter=".filter-app">Continente</li>
+                    <li data-filter=".filter-card">Stato</li>
+                    <li data-filter=".filter-web">Cita</li>
+                    <li data-filter=".filter-web">Tipo viaggio</li>
+                </ul>
+            </div>
+        </div>*@
+        <div class="col-md-9 bann-right">
+
+            <div class="row portfolio-container">
+                @{
+                    int counter = 0;
+                }
+                @foreach (var item in ViewBag.Tours)
+                {
+                    counter++;
+                    if (counter <= 15)
+                    {
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div class="portfolio-wrap">
+                                <img src="../Images/Tour/@item.TourImage" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>@item.TourName</h4>
+                                    <p>@item.Description</p>
+                                    <div class="portfolio-links">
+                                        <a href="../Images/Tour/@item.TourImage" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                                        @*<a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>*@
+                                        @Html.ActionLink("🔗", "TourDetails", new { TourId = item.TourId }, new { @class = "venobox", data_vbtype = "iframe", data_gall = "tourDetails" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+
+        </div>
+        <div class="col-md-3 bann-left">
+            <div style="padding-top:20px;">
+                <div class="b-search">
+
+                    @using (Html.BeginForm("Tour", "Home", FormMethod.Get))
+                    {
+        <input type="text" name="txtSearch" placeholder="Search Tour" />
+                        <button type="submit" class="btn-warning-search">Search</button>}
+                </div>
+            </div>
+            <h3>Recent Posts</h3>
+            <div class="blo-top">
+                @{ int count = 0; }
+                @foreach (var item in ViewBag.Articles)
+                {
+                    count++;
+                    if (count <= 3)
+                    {
+        <div class="blog-grids">
+            <div class="blog-grid-left">
+                <a href='@Url.Action("ArticleDetails", "Home",  new { ArticleId = item.ArticleId })'>
+                    <img src="../Images/Article/@item.ArticleImage" class="img-responsive" alt="" />
+                </a>
+            </div>
+            <div class="blog-grid-right">
+                <h4>@Html.ActionLink((string)item.Title, "ArticleDetails", new { ArticleId = item.ArticleId })</h4>
+                <p>@item.Description</p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>}
+                    }
+            </div>
+            <h3>Categories</h3>
+            <div class="blo-top">
+                @{
+                    int cat = 0;
+                }
+                <ul style="padding:0;">
+                    @foreach (var item in ViewBag.Categories)
+                    {
+                        cat++;
+                        if (cat <= 5)
+                        {
+                            <li>
+                            <li>@Html.ActionLink((string)item.CategoryName, "Article", "Home", new { txtSearch, id = @item.CategoryId }, null)</li>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+            <h3>Newsletter</h3>
+
+            <div class="blo-top">
+                <div class="name">
+                    <form>
+                        <input type="text" placeholder="email" required="">
+                    </form>
+                </div>
+                <div class="button">
+                    <form>
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+        <div class="fle-xsel">
+            <ul id="flexiselDemo3">
+                @foreach (var item in ViewBag.Tours)
+                {
+                    <li>
+                        <a href='@Url.Action("TourDetails", "Home",  new { TourId = item.TourId })'>
+                            <div class="banner-1">
+                                <img src="../Images/Tour/@item.TourImage" class="img-responsive" alt="">
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <script type="text/javascript" src="~/web/js/jquery.flexisel.js"></script>
+            <script type="text/javascript">
+
+                jq14(window).load(function () {
+
+
+                    jq14("#flexiselDemo3").flexisel({
+                        visibleItems: 5,
+                        animationSpeed: 1000,
+                        autoPlay: true,
+                        autoPlaySpeed: 3000,
+                        pauseOnHover: true,
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: {
+                            portrait: {
+                                changePoint: 480,
+                                visibleItems: 2
+                            },
+                            landscape: {
+                                changePoint: 640,
+                                visibleItems: 3
+                            },
+                            tablet: {
+                                changePoint: 768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+
+                });
+            </script>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+</section><!-- End Portfolio Section -->
+<link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet" />
+<script src="~/AdminStyle/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="~/AdminStyle/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    jq162 = jQuery.noConflict(true);
+    jq162(function () {
+        jq162("#country").autocomplete({
+            source: '@Url.Action("GetCountry")',
+        });
+});
+</script>

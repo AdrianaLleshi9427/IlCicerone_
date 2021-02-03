@@ -1,0 +1,7 @@
+﻿.dropdown-menu.show {
+    left: auto !important;
+    top: 80%;
+}
+    .dropdown-menu.show li a {
+        padding: 3px 20px;
+    }

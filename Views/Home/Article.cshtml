@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Article Collection";
+    string txtSearch = ViewBag.txtSearch;
+}
+<link href="~/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="~/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/web/js/responsiveslides.min.js"></script>
+<!-- Blog -->
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container" style="margin-top: 50px;">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>@*Article List*@</h2>
+                <ol>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>Article Collection</li>
+                </ol>
+            </div>
+            <div class="blog">
+                <div class="blog-content">
+                    <div class="blog-content-left">
+                        <div class="blog-articals">
+                            @foreach (var item in ViewBag.Articles)
+                            {
+                                <div class="blog-artical">
+                                    <div class="blog-artical-info">
+                                        <div class="blog-artical-info-img">
+                                            <a href='@Url.Action("ArticleDetails", "Home",  new { ArticleId = item.ArticleId })'><img src="~/Images/Article/@item.ArticleImage" title=@item.Title></a>
+                                        </div>
+                                        <div class="blog-artical-info-head">
+                                            <h2><a href='@Url.Action("ArticleDetails", "Home",  new { ArticleId = item.ArticleId })'>@item.Title</a></h2>
+                                            <h6>Posted on, @item.Publication_date by <a href="#"> @item.UserId</a></h6>
+                                        </div>
+                                        <div class="blog-artical-info-text">
+                                            <p>@item.Description @Html.ActionLink("[...]", "ArticleDetails", new { ArticleId = item.ArticleId })</p>
+                                        </div>
+                                        <div class="artical-links">
+                                            <ul>
+                                                <li><small> </small><span>@item.Created_at</span></li>
+                                                <li><a href="#"><small class="admin"> </small><span>@item.UserId</span></a></li>
+                                                <li><a href="#"><small class="no"> </small><span>No comments</span></a></li>
+                                                <li><a href='@Url.Action("ArticleDetails", "Home",  new { ArticleId = item.ArticleId })'><small class="posts"> </small><span>View posts</span></a></li>
+                                                <li><a href="#"><small class="link"> </small><span>permalink</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            }
+                        </div>
+                        <!--start-blog-pagenate-->
+                        <div class="blog-pagination">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    @{ int position;
+                                        int pageCurrent = ViewBag.pageCurrent;
+                                        float numSize = ViewBag.numSize;
+                                        if (pageCurrent > 1)
+                                        {
+                                            <li class="page-item">
+                                                <a class="" href="@Url.Action("Article", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent-1})" tabindex="-1">Previous</a>
+                                            </li>
+                                        }
+                                        for (position = 1; position <= numSize; position++)
+                                        {
+                                            if (position == pageCurrent)
+                                            {
+                                                <li class="page-item active"><a class="" href="@Url.Action("Article", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position})">@position</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li class="page-item"><a class="" href="@Url.Action("Article", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position})">@position</a></li>
+                                            }
+                                        }
+                                        if (pageCurrent > 0 && pageCurrent < numSize)
+                                        {
+                                            <li class="page-item">
+                                                <a class="" href="@Url.Action("Article", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent+1})" tabindex="-1">Next</a>
+                                            </li>
+                                        } }
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--//End-blog-pagenate-->
+                    </div>
+                    <div class="blog-content-right">
+                        <div style="padding-top:20px;">
+                            @using (Html.BeginForm("Blog", "Home", FormMethod.Get))
+                            {
+                                <input type="text" name="txtSearch" placeholder="Search Article" />
+                                <button type="submit" class="btn-warning-search">Search</button>}
+                        </div>
+                        <!--start-twitter-weight-->
+                        <div class="twitter-weights">
+                            @{ int i = 0; }
+                            <h3>Latest Post</h3>
+                            @foreach (var item in ViewBag.Articles)
+                            {
+                                i++;
+                                if (i <= 3)
+                                {
+                                    <div class="twitter-weight-grid">
+                                        <h4><span> </span>@item.UserId</h4>
+                                        <p>@item.Description <a href='@Url.Action("ArticleDetails", "Home",  new { ArticleId = item.ArticleId })'>@item.Title</a></p>
+                                        <i><a href='@Url.Action("ArticleDetails", "Home",  new { ArticleId = item.ArticleId })'>@item.Publication_date</a></i>
+                                    </div>
+                                }
+                            }
+                            <a class="twittbtn" href="#">See all Tweets</a>
+                        </div>
+                        <!--//End-twitter-weight-->
+                        <!-- start-tag-weight-->
+                        <div class="b-tag-weight">
+                            <h3>Category</h3>
+                            @{ int cat = 0; }
+                            <ul>
+                                @foreach (var item in ViewBag.Categories)
+                                {
+                                    cat++;
+                                    if (cat <= 15)
+                                    {
+                                        <li>@Html.ActionLink((string)item.CategoryName, "Article", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), id = @item.CategoryId }, null)</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <!---- //End-tag-weight---->
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

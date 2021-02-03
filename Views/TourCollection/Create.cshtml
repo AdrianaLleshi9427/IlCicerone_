@@ -1,0 +1,81 @@
+﻿@model IlCicerone.Models.TourCollection
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/3.4.1/themes/smoothness/jquery-ui.css" />
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script src="//code.jquery.com/ui/3.4.1/jquery-ui.js"></script>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Add Collection
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "TourCollection", FormMethod.Post, new { enctype = "multipart/form-data"}))
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        <label>Title</label>
+                        @Html.TextBoxFor(m => m.TourCollectionTitle, new { @class = "form-control", @placeholder = "Title" })
+                        @Html.ValidationMessageFor(m => m.TourCollectionTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Details</label>
+                        @Html.TextAreaFor(m => m.TourCollectionDetails, new { @class = "form-control", @placeholder = "details" })
+                        @Html.ValidationMessageFor(m => m.TourCollectionDetails, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                            @Html.LabelFor(m => m.CollectionImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="file" name="file" id="file" style="width: 100%;" />
+                                @Html.ValidationMessageFor(m => m.CollectionImage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tour date</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.TourCollectionDate, "{0:dd/MMM/yyyy HH:mm}", new { @class = "form-control", type = "datetime-local" })
+                                @Html.ValidationMessageFor(m => m.TourCollectionDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>End date</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.EndCol_date, "{0:dd/MMM/yyyy HH:mm}", new { @class = "form-control", type = "datetime-local" })
+                                @Html.ValidationMessageFor(m => m.EndCol_date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tour Owner</label>
+                            @Html.TextBoxFor(m => m.TourColOwner, new { @class = "form-control", @placeholder = "Tour Owner" })
+                            @Html.ValidationMessageFor(m => m.TourColOwner, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" value="Save Collection" class="btn btn-success" />
+                            @if (ViewBag.message != "")
+                            {
+                                <span class="badge badge-danger">@ViewBag.message</span>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

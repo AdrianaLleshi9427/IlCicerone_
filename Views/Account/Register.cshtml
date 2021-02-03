@@ -1,0 +1,110 @@
+﻿@model IlCicerone.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<link href="~/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="~/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/web/js/responsiveslides.min.js"></script>
+<div class="row">
+    <div class="containers" style="width: 100%;">
+        <div class="account_grid">
+            <div class="col-md-10 login-left wow fadeInLeft" data-wow-delay="0.4s">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h3 style="padding: 20px;">CREATE A NEW ACCOUNT.</h3>
+                    <hr />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    //countryid
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CountryId, htmlAttributes: new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CountryId, (IEnumerable
+                            <SelectListItem>
+                            )ViewData["CountryNameList"], "[Select Country]", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CountryId)
+                        </div>
+                    </div>
+                    //cityid
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CityId, htmlAttributes: new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CityId, (IEnumerable
+                            <SelectListItem>
+                            )ViewData["CityNameList"], "[Select City]", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CityId)
+                        </div>
+                    </div>
+                    //languageid
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LanguageId, htmlAttributes: new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.LanguageId, (IEnumerable
+                            <SelectListItem>
+                            )ViewData["LanguageNameList"], "[Select Language]", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LanguageId)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Gender, htmlAttributes: new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.RadioButtonFor(model => model.Gender, true)
+                            <span>Male</span>
+                            @Html.RadioButtonFor(model => model.Gender, false)
+                            <span>Female</span>
+                            @Html.RadioButtonFor(model => model.Gender, false)
+                            <span>Other</span>
+                            @Html.ValidationMessageFor(m => m.Gender)
+                        </div>
+                    </div>
+                
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="login-btn" value="Register" />
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

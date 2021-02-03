@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        Select by Category: @Html.DropDownList("SelectedCategory", "All")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-14">
+            <div class="card">
+                <div class="card-header">
+                    Article List
+                </div>
+                <div class="card-body">
+                    <div class="card-header header-style">
+                        @using (Html.BeginForm("Index", "Article", FormMethod.Get))
+                        {
+                            <input type="text" name="txtSearch" placeholder="Search" />
+                            <button type="submit" class="btn-warning-admin">Search</button>
+                        }
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>City</th>
+                                <th>User</th>
+                                <th>Created_at</th>
+                                <th>Published_at</th>
+                                <th>Updated_at</th>
+                                <th>Image</th>
+                                <th>Gallery</th>
+                                <th>Category</th>
+                                <th>Edit</th>
+                                <th>Details</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @foreach (var article in ViewBag.Articles)
+                            {
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@article.Title</td>
+                                    <td>@article.Description</td>
+                                    <td>@article.City.CityName</td>
+                                    <td>@article.UserId</td>
+                                    <td>@article.Created_at</td>
+                                    <td>@article.Publication_date</td>
+                                    <td>@article.Updated_at</td>
+                                    <td>
+                                        <img style="width: 100px; height: auto;" alt="@article.Title" src="@Url.Content("~/Images/Article/" + @article.ArticleImage)" />
+                                    </td>
+                                    <td>
+                                        <img style="width: 100px; height: auto;" alt="@article.Title" src="@Url.Content("~/Images/Article/" + @article.Gallery)" />
+                                    </td>
+                                    <td>@article.Category.CategoryName</td>
+                                    <td><a href="@Url.Action("Edit","Article",new {id=article.ArticleId})" class="badge badge-warning">Modify</a></td>
+                                    <td><a href="@Url.Action("Details","Article",new { id = article.ArticleId })" class="badge badge-warning">Details</a></td>
+                                    <td><a href="@Url.Action("Delete","Article",new {id=article.ArticleId})" class="badge badge-danger">Remove</a></td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                    <div class="card-footer">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                @{
+                                    int position;
+                                    int pageCurrent = ViewBag.pageCurrent;
+                                    string txtSearch = ViewBag.txtSearch;
+                                    float numSize = ViewBag.numSize;
+                                    if (pageCurrent > 1)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("Index", "Article", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                        </li>
+                                    }
+                                    for (position = 1; position <= numSize; position++)
+                                    {
+                                        if (position == pageCurrent)
+                                        {
+                                            <li class="page-item active"><a class="page-link" href="@Url.Action("Index", "Article", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Article", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                        }
+                                    }
+                                    if (pageCurrent > 0 && pageCurrent < numSize)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("Index", "Article", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

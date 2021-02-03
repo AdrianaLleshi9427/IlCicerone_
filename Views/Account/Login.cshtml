@@ -1,0 +1,78 @@
+﻿@using IlCicerone.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+<link href="~/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="~/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/web/js/responsiveslides.min.js"></script>
+
+<div class="row">
+    <div class="containers">
+        <div class="account_grid">
+            <div class="col-md-8 login-left wow fadeInLeft" data-wow-delay="0.4s">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h3>REGISTERED USERS</h3>
+                        <p>If you have an account with us, please log in.</p>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Log in" class="login-btn" />
+                            </div>
+                        </div>
+                        @*<p>
+                            @Html.ActionLink("Register as a new user", "Register")
+                        </p>*@
+                        //Enable this once you have account confirmation enabled for password reset functionality
+                        <p style="padding-left: 150px;">
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>
+                    }
+                </section>
+            </div>
+            <div class="col-md-4 login-right wow fadeInRight" data-wow-delay="0.4s">
+                @*<section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>*@
+                <section id="socialLoginForm">
+                    <h3>NEW USER</h3>
+                    <p>By creating an account, you will be able to move through the dashboard, create multiple articles, view and track your tours in your account and more.</p>
+                    @Html.ActionLink("Create an Account", "Register", null, new { @class = "account-btn" })
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

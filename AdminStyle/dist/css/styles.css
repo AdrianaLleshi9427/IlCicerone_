@@ -1,0 +1,79 @@
+.btn-warning-admin {
+    color: white;
+    background-color: #007bff;
+    border-color: #007bff;
+    box-shadow: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .205rem .75rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+input[type="text"] {
+    padding: .15rem .55rem;
+}
+
+.badge-warning {
+    color: white !important;
+}
+
+.header-style {
+    float: right;
+}
+
+.badge {
+    padding: .550em .40em !important;
+}
+/*.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-calendar:before {
+    content: "\e109";
+}
+*/
+.goog-te-gadget-simple {
+    background: #4b545c !important;
+    border: none;
+}
+.goog-te-gadget-icon {
+    display: none;
+}
+/*#google_translate_element {
+    text-align: center;
+}*/
+.goog-te-gadget-simple .goog-te-menu-value {
+    color: rgba(255,255,255,.8) !important;
+}
+/*.goog-te-gadget {
+    padding-top: 5%;
+}*/
+#google_translate_element {
+    padding: 5% 0%;
+    text-align: center;
+}
+.goog-te-banner-frame {
+    display: none !important;
+}
+.goog-tooltip {
+    display: none !important;
+}
+
+    .goog-tooltip:hover {
+        display: none !important;
+    }
+
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}

@@ -1,0 +1,274 @@
+﻿@model IlCicerone.Models.Tour
+@{
+    ViewBag.Title = "TourDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Sailor/assets/css/tourDetails.css" rel="stylesheet" />
+
+<main id="main">
+    <!-- ======= Contact Section ======= -->
+        <div class="container">
+            <section id="breadcrumbs" class="breadcrumbs">
+                <ol style="float: right;">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Tour", "Tour", "Home")</li>
+                    <li>Tour Details</li>
+                </ol>
+            </section><!-- End Breadcrumbs -->
+            <section class="site-main">
+                <div class="row content-area">
+
+                    <div class="columns-7 site-content tour-content column-reset">
+                        <div class="page-title">
+                            <h1>@Model.TourName</h1>
+                            <div class="rating-holder orange"><a class="toolTipster fancybox cursorPointer tooltipstered"></a></div>
+                        </div>
+                        <article class="post-content pad-clean">
+                            <div class="text-center">
+                                <p class="lead"> </p>
+                            </div>
+                            <p>
+                                @Model.Description
+                            </p>            
+                                    <div class="accordions">
+                                        <div class="accordion-item">
+                                            <div class="accordion-title active-title" data-tab="item1">
+                                                <h2>Story <i class="fas fa-chevron-down"></i></h2>
+                                            </div>
+                                            <div class="accordion-content" id="item1" style="display: block;">
+                                                <p>
+                                                    @Model.Story
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <div class="accordion-title" data-tab="item2">
+                                                <h2>Art and Culture <i class="fas fa-chevron-down"></i></h2>
+                                            </div>
+                                            <div class="accordion-content" id="item2">
+                                                <p>
+                                                    @Model.ArtandCulture
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <div class="accordion-title" data-tab="item3">
+                                                <h2>Entertainment and Recreation <i class="fas fa-chevron-down"></i></h2>
+                                            </div>
+                                            <div class="accordion-content" id="item3">
+                                                <p>
+                                                    @Model.EntertainmentandRecreation
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <div class="accordion-title" data-tab="item4">
+                                                <h2> What to visit and excursions <i class="fas fa-chevron-down"></i></h2>
+                                            </div>
+                                            <div class="accordion-content" id="item4">
+                                                <p>
+                                                    @Model.Whattovisitandexcursions
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <div class="accordion-title" data-tab="item5">
+                                                <h2>Gastronomy <i class="fas fa-chevron-down"></i></h2>
+                                            </div>
+                                            <div class="accordion-content" id="item5">
+                                                <p>
+                                                    @Model.Gastronomy
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <div class="accordion-title" data-tab="item6">
+                                                <h2>How and when to arrive <i class="fas fa-chevron-down"></i></h2>
+                                            </div>
+                                            <div class="accordion-content" id="item6">
+                                                <p>
+                                                    @Model.Howandwhentoarrive
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <section class="page-inner-section"></section>
+                            <h5></h5>
+                            <section class="page-inner-section review-holder"></section>
+                        </article>
+                    </div>
+                    <aside class="columns-5 site-sidebar tour-sidebar column-reset">
+                        <div class="widget highlight book-tour">
+                            <div class="image-holder featured-image">
+                                <a target="photoViewer" rel="nofollow" onclick="window.open('https://www.toursbylocals.com/tpv&amp;tourid=352706&amp;index=0','photoViewer','toolbar=no,location=no,status=no,menubar=no,resizable=yes,scrollbars=yes'); return false" href="https://www.toursbylocals.com/tpv&amp;tourid=352706&amp;index=0"><img alt="Tirana Beyond Imagination" class="lazy" src="https://www.toursbylocals.com/images/guides/6/6790/2017193003940243.jpg" style="display: inline;"></a>
+
+                                <a target="photoViewer" rel="nofollow" onclick="window.open('https://www.toursbylocals.com/tpv&amp;tourid=352706&amp;index=0','photoViewer','toolbar=no,location=no,status=no,menubar=no,resizable=yes,scrollbars=yes'); return false" href="https://www.toursbylocals.com/tpv&amp;tourid=352706&amp;index=0"><center><i class="fa fa-camera"></i> View Gallery (2)</center></a>
+
+                            </div>
+
+                            <div class="widget about-guide guideWidgetWhiteBoxStyle">
+                                <h2>
+
+                                    <a href="https://www.toursbylocals.com/AlbaniaPrivateGuide"><span class="tblGreen">Meet Your Guide</span></a>
+                                </h2>
+                                <div class="guide-blurb">
+                                    <div class="guide-profile-block row">
+                                        <p class="guide-meta text-center">
+                                            <span class="guideWidgetDisplayName">
+
+                                                <a href="https://www.toursbylocals.com/AlbaniaPrivateGuide"><span class="too-far-future-color">Adrian M.</span></a>
+                                            </span>
+                                            &nbsp;&nbsp;&nbsp;
+
+                                            Tirana, Albania
+                                        </p>
+                                    </div>
+                                    <div class="icon-holder avatar-holder">
+
+                                        <a href="https://www.toursbylocals.com/AlbaniaPrivateGuide"><img alt="Private tour guide Adrian" class="lazy" src="https://www.toursbylocals.com/images/guides/6/6790/2012313132705222.jpg" style="display: block;"></a>
+                                    </div>
+                                    <div class="rating-holder orange"><a data-fancybox-type="iframe" class="fancybox" href="https://www.toursbylocals.com/TBL/WebObjects/ToursByLocals.woa/wa/reviewsFancybox?guide=6790"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></a>&nbsp;(29)</div>
+                                    <p>
+                                        Hi! You are seeing this profile mainly because I love my country and I really enjoy tour-guiding.,...
+
+                                        <a href="https://www.toursbylocals.com/AlbaniaPrivateGuide">more</a>
+                                    </p>
+                                </div>
+                                <div class="buttons-holder text-center">
+
+                                    <a rel="nofollow" class="button green" href="/TBL/WebObjects/ToursByLocals.woa/1/wa/messageGuide?tourid=352706&amp;wosid=DnEWhJv4xDWKtItObhIqkM">Message Adrian M.</a>
+                                </div>
+                            </div>
+
+
+                            <h2 class="paddingTen">
+
+                                <a class="orangeDisc" href="/TBL/WebObjects/ToursByLocals.woa/1/wa/lookup?book=yes&amp;wosid=DnEWhJv4xDWKtItObhIqkM&amp;url=Tirana-BunkArt-CableWay-MountainDajti">Book this tour</a>
+                            </h2>
+                            <div class="tour-currency-holder">
+                                <div class="tour-currency-switch">
+                                    <b>Currency</b>
+                                    <ul class="tour-currencies">
+                                        <li>@Model.Currency.CurrencyName</li>
+                                    </ul>
+                                </div>
+                                <div class="tour-currency-price">
+                                    <b>Tour Price</b>
+                                    <p>@Model.Price</p>
+                                </div>
+                            </div>
+
+
+                            <div class="tour-booking-holder positionRelative book-tour tour-currency-price" id="viewDateTime" style="display:flex;">
+
+                                <b>Date</b>
+                                <div style="padding-left:85px;">@Model.Publication_date - @Model.End_date</div>
+
+                            </div>
+                            <div class="book-tour tour-currency-price">
+
+                                <b>Stato</b>
+                                <div>@Model.Status</div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="borderBottom2pxWhite"></div>
+                        <div class="widget highlight tour-details widget-details">
+                            <h2>Tour Details</h2>
+                            <h3>Tour Type(s)</h3>
+                            <ul class="block-grid-2 widget-detail-grid">
+
+                                <li>
+                                    <img width="60" height="60" alt="Nature and Wildlife" class="lazy" src="https://www.toursbylocals.com/images/tour-category-icons/nature-and-wildlife.png" style="display: inline;">
+                                    <span>Nature and Wildlife</span>
+                                </li>
+
+                                <li>
+                                    <img width="60" height="60" alt="Museums / Culture" class="lazy" src="https://www.toursbylocals.com/images/tour-category-icons/museums-and-culture.png" style="display: inline;">
+                                    <span>Museums / Culture</span>
+                                </li>
+
+                                <li>
+                                    <img width="60" height="60" alt="Food and Wine" class="lazy" src="https://www.toursbylocals.com/images/tour-category-icons/food-and-wine.png" style="display: inline;">
+                                    <span>Food and Wine</span>
+                                </li>
+
+                                <li>
+                                    <img width="60" height="60" alt="City" class="lazy" src="https://www.toursbylocals.com/images/tour-category-icons/city.png" style="display: inline;">
+                                    <span>City</span>
+                                </li>
+
+                            </ul>
+                            <h3>Tour Number</h3>
+                            <div><p class="text-center">@Model.TourId</p></div>
+                            <h3>Activity Level</h3>
+                            <div><p class="text-center"><a target="instructionsviewer" rel="nofollow" onclick="var w=window.open('/TBL/WebObjects/ToursByLocals.woa/1/wa/textPopup?c=17&amp;wosid=DnEWhJv4xDWKtItObhIqkM','instructionsviewer','toolbar=no,location=no,status=no,menubar=no,resizable=yes,scrollbars=yes,width=700,height=600'); w.focus(); return false" href="/TBL/WebObjects/ToursByLocals.woa/1/wa/textPopup?c=17&amp;wosid=DnEWhJv4xDWKtItObhIqkM">@Model.ActivityLevel</a></p></div>
+                            <h3>Language(s)</h3>
+                            <p class="tour-extra"><a target="instructionsviewer" rel="nofollow" onclick="var w=window.open('/TBL/WebObjects/ToursByLocals.woa/1/wa/textPopup?c=34&amp;wosid=DnEWhJv4xDWKtItObhIqkM','instructionsviewer','toolbar=no,location=no,status=no,menubar=no,resizable=yes,scrollbars=yes,width=700,height=600'); w.focus(); return false" href="/TBL/WebObjects/ToursByLocals.woa/1/wa/textPopup?c=34&amp;wosid=DnEWhJv4xDWKtItObhIqkM">explanation</a></p>
+                            <ul class="tour-language-list bar-chart-lists">
+
+                                <li>
+                                    <b class="language"><small>@Model.Languages</small></b>
+                                    <div data-level="3" class="bar-chart-level"><span></span><span></span><span></span><span></span></div>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <div class="post-share">
+                            <h5>Share This Tour</h5>
+                            <ul class="share-icons">
+                                <li><a onclick="if( this.href ) { window.open(this.href, 'ToursByLocals', 'width=720px, height=480px'); return false; }" class="toolTipster tooltipstered" href="https://twitter.com/home?status=Check%20out%20this%20tour%20on%20ToursByLocals%20-%20http://www.toursbylocals.com/Tirana-BunkArt-CableWay-MountainDajti"><i class="fa fa-twitter"></i></a></li>
+                                <li><a onclick="if( this.href ) { window.open(this.href, 'ToursByLocals', 'width=720px, height=480px'); return false; }" class="toolTipster tooltipstered" href="https://www.facebook.com/sharer/sharer.php?u=http://www.toursbylocals.com/Tirana-BunkArt-CableWay-MountainDajti"><i class="fa fa-facebook-official"></i></a></li>
+                                <li><a class="toolTipster tooltipstered" href="mailto:?subject=ToursByLocals%20Tour%20-%20Tirana Beyond Imagination&amp;body=Check%20out%20this%20tour%20on%20ToursByLocals%20-%20http://www.toursbylocals.com/Tirana-BunkArt-CableWay-MountainDajti"><i class="fa fa-envelope"></i></a></li>
+                                <li>
+                                    <a onclick="setClipboard('http://www.toursbylocals.com/Tirana-BunkArt-CableWay-MountainDajti')" class="cursorPointer toolTipster tooltipstered"><i class="fa fa-clipboard"></i></a>
+                                    <script>
+                                        function setClipboard(value) {
+                                            var tempInput = document.createElement("input");
+                                            tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+                                            tempInput.value = value;
+                                            document.body.appendChild(tempInput);
+                                            tempInput.select();
+                                            document.execCommand("copy");
+                                            document.body.removeChild(tempInput);
+                                        }
+                                    </script>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <div class="guide-contact-section"></div>
+                    <div class="guide-tours-section"></div>
+                </div>
+            </section>
+            </div>
+</main>
+<script type="text/javascript" src="~/AdminStyle/plugins/jquery/jquery.js"></script>
+<script>
+    jq162 = jQuery.noConflict(true);
+    jq162(document).ready(function () {
+        jq162(".accordion-title").click(function (e) {
+            var accordionitem = $(this).attr("data-tab");
+            $("#" + accordionitem).slideToggle().parent().siblings().find(".accordion-content").slideUp();
+
+            $(this).toggleClass("active-title");
+            $("#" + accordionitem).parent().siblings().find(".accordion-title").removeClass("active-title");
+
+            $("i.fa-chevron-down", this).toggleClass("chevron-top");
+            $("#" + accordionitem).parent().siblings().find(".accordion-title i.fa-chevron-down").removeClass("chevron-top");
+        });
+
+    });
+
+// icon from Font Awesome was used in accordion-1
+</script>

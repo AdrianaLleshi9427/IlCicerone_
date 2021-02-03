@@ -1,0 +1,74 @@
+﻿@model IlCicerone.Models.ArticleCollection
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Article Collection</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleCollectionTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleCollectionTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleCollectionDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleCollectionDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleCollectionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleCollectionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedCol_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedCol_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedCol_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedCol_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleColOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleColOwner)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleCollectionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

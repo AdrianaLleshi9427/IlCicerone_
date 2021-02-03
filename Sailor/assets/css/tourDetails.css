@@ -1,0 +1,972 @@
+.row {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.columns-7 {
+    width: 58.3333333333%;
+}
+
+[class*=columns-] {
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-height: 1px;
+}
+
+.page-title {
+    padding: 10px 0;
+    text-align: center;
+}
+
+    .page-title h1, .page-title h2 {
+        font-size: 28px;
+        font-size: 1.75rem;
+    }
+
+h1 {
+    font-size: 42px;
+    font-size: 2.625rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.6;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+.rating-holder {
+    padding: 5px 0;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+a {
+    /*color: #70ab43;
+    text-decoration: underline;*/
+}
+
+    a, a:hover {
+        -webkit-transition: .5s ease;
+        -moz-transition: .5s ease;
+        -o-transition: .5s ease;
+        transition: .5s ease;
+    }
+
+a {
+    background-color: transparent;
+}
+
+.post-content.pad-clean {
+    padding-top: 0;
+}
+
+.post-content {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+p.lead {
+    font-family: "Open Sans",sans-serif;
+    font-size: 18px;
+    font-size: 1.125rem;
+}
+
+p {
+    margin: 0;
+    line-height: 1.8;
+    padding-bottom: 20px;
+    font-family: "Gentium Book Basic",serif;
+}
+
+.page-inner-section {
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+.post-content h2, .section-header {
+    text-align: center;
+    /*color: #f7943c;*/
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 24px;
+    font-size: 1.5rem;
+}
+
+ol:not([class]), ul:not([class]) {
+    margin: 0 0 20px 10px;
+    list-style: none;
+    padding-left: 25px;
+}
+
+ul {
+    /*list-style: disc;*/
+    /*margin: 0 0 0 15px;*/
+    padding: 0 0 15px;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0;
+}
+
+h5 {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+.review-holder {
+    position: relative;
+}
+
+.site-sidebar {
+    margin-bottom: 25px;
+}
+
+.columns-5 {
+    width: 41.6666666667%;
+}
+
+.widget.highlight {
+    background: #f6f2e4;
+}
+
+.book-tour {
+    padding-top: 0;
+    margin-top: 25px;
+}
+
+.widget {
+    padding: 35px 15px 25px;
+}
+
+.borderBottom2pxWhite {
+    border-bottom: 2px solid #fff;
+}
+
+.widget-details {
+    margin-top: 0 !important;
+}
+
+.post-share {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.guide-contact-section {
+    padding: 80px 0 40px;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+.guide-tours-section {
+    padding: 30px 0 70px;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+#main {
+    margin-top: 100px;
+}
+
+.image-holder img {
+    vertical-align: bottom;
+}
+
+img.lazy {
+    /* background-image: transparent url(https://www.toursbylocals.com/images/loading.gif);*/
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 0;
+}
+
+img {
+    border: 0;
+}
+
+.about-guide {
+    padding: 35px 35px 35px;
+    margin-top: 0 !important;
+    border-right: 2px solid #f6f2e4;
+    border-left: 2px solid #f6f2e4;
+}
+
+.guideWidgetWhiteBoxStyle {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.about-guide .guide-blurb {
+    padding: 15px 0;
+}
+
+.row .row {
+    margin-right: -10px;
+    margin-left: -10px;
+    max-width: none;
+    width: auto;
+}
+
+.row:after, .row:before {
+    content: "";
+    display: table;
+}
+
+.guide-profile-block .guide-meta {
+    color: #70ab43;
+    font-style: italic;
+}
+
+.guide-profile-block p {
+    padding-bottom: 15px;
+}
+
+.guideWidgetDisplayName {
+    border-bottom: 2px solid #f7943c;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    font-style: normal;
+    font-family: open sans;
+    text-decoration: none !important;
+}
+
+.about-guide .guide-blurb .avatar-holder {
+    float: left;
+    margin-right: 20px;
+}
+
+.avatar-holder {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    width: 130px;
+    height: 130px;
+}
+
+.about-guide .guide-blurb .rating-holder {
+    margin-bottom: 10px;
+}
+
+.rating-holder {
+    padding: 5px 0;
+}
+
+.book-tour h2 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    color: #f7943c;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    text-align: center;
+}
+
+.paddingTen {
+    padding: 10px;
+}
+
+.orangeDisc {
+    color: #f7943c;
+}
+
+.book-tour .tour-currency-holder {
+    padding: 10px;
+}
+
+.book-tour .tour-currency-switch {
+    padding: 10px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.book-tour .tour-currencies {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+}
+
+    .book-tour .tour-currencies .active {
+        font-weight: 700;
+        position: relative;
+    }
+
+    .book-tour .tour-currencies li {
+        display: inline-block;
+        font-family: "Gentium Book Basic",serif;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+.book-tour .tour-currency-price {
+    padding: 15px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.tourDetailsPopupStyle {
+    font-size: .6em;
+    border-color: #999;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.book-tour .tour-currency-price span {
+    font-family: "Gentium Book Basic",serif;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 400;
+    display: block;
+    margin-top: 5px;
+    letter-spacing: normal;
+}
+
+.book-tour .tour-booking-holder {
+    padding: 0 10px;
+}
+
+.marginBottom5 {
+    margin-bottom: 5px;
+}
+
+[class*=block-grid-] {
+    display: block;
+    margin: 0 -10px;
+    padding: 0;
+}
+
+.block-grid-3 > li {
+    width: 33.3333333333%;
+}
+
+[class*=block-grid-] > li {
+    display: block;
+    float: left;
+    height: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.width20 {
+    width: 20% !important;
+}
+
+.textAlignLeft {
+    text-align: left !important;
+}
+
+.div-table {
+    display: table;
+    width: 100%;
+}
+
+.div-table-row {
+    display: table-row;
+}
+
+.div-table-cell {
+    display: table-cell;
+}
+
+.cell-is-available {
+    background-color: #d9edbd !important;
+}
+
+small {
+    font-size: 80%;
+}
+
+.cell-is-unavailable {
+    background-color: red !important;
+}
+
+.cell-is-partly-unavailable {
+    background-color: #f90;
+}
+
+.cell-is-past {
+    background-color: #f5f4ac;
+}
+
+.button.square {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    font-size: 18px;
+    font-size: 1.125rem;
+    padding: 20px 30px;
+}
+
+.button.orange {
+    background: #f7943c;
+}
+
+.button.orange-white {
+    background: #fff;
+    color: #f7943c;
+    border: 2px solid #f7943c;
+}
+
+.button {
+    -webkit-transition: .5s ease;
+    -moz-transition: .5s ease;
+    -o-transition: .5s ease;
+    transition: .5s ease;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    background: #f7943c;
+    min-width: 100px;
+    text-align: center;
+    font-size: 14px;
+    font-size: .875rem;
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 13px 25px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .1em;
+}
+
+.borderBottom2pxWhite {
+    border-bottom: 2px solid #fff;
+}
+
+.widget-details h3 {
+    font-size: 16px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 22px;
+    font-size: 1.375rem;
+}
+
+.widget-details .widget-detail-grid {
+    font-size: 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .widget-details .widget-detail-grid li {
+        display: inline-block;
+        float: none;
+        text-align: center;
+        vertical-align: top;
+    }
+
+.block-grid-2 > li {
+    width: 50%;
+}
+
+.tour-details .tour-extra {
+    text-align: center;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.widget-details .bar-chart-lists {
+    padding: 0;
+    margin: 0 0 40px;
+    list-style: none;
+}
+
+    .widget-details .bar-chart-lists .language {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20%;
+        font-size: 14px;
+        font-size: .875rem;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+    }
+
+b, strong {
+    font-weight: 700;
+}
+
+.widget-details .bar-chart-level {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 0;
+    width: 50%;
+    font-size: 0;
+}
+
+.post-share {
+    padding: 25px 0;
+    text-align: center;
+}
+
+    .post-share a {
+        text-decoration: none;
+    }
+
+.share-icons {
+    padding: 0;
+    margin: 0 0 10px;
+    list-style: none;
+}
+
+    .share-icons li {
+        display: inline-block;
+        margin: 0 2px;
+    }
+
+    .share-icons a {
+        background: #f7943c;
+        color: #fff;
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 28px;
+        font-size: 1.75rem;
+    }
+
+.guide-contact-section {
+    padding: 80px 0 40px;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+    .guide-contact-section .avatar-holder {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        -moz-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        border: 5px solid #fff;
+    }
+
+.avatar-holder {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    width: 130px;
+    height: 130px;
+}
+
+    .avatar-holder img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        min-width: 130px;
+    }
+
+.columns-6 {
+    width: 50%;
+}
+
+.column-center {
+    clear: both;
+    float: none;
+    margin: 0 auto;
+}
+
+.break-url {
+    word-wrap: break-word;
+    font-family: Gentium Book Basic;
+}
+
+.guide-tours-section {
+    padding: 30px 0 70px;
+    /*background: url(../../images/hp-tours-bg.jpg) center;*/
+}
+
+    .guide-tours-section .columns-6 {
+        text-align: center;
+    }
+
+.columns-12 {
+    width: 100%;
+}
+
+.block-grid-3 > li {
+    width: 33.3333333333%;
+}
+
+[class*=block-grid-] > li {
+    display: block;
+    float: left;
+    height: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.marginBottom20 {
+    margin-bottom: 20px;
+}
+
+.card-holder:not(.no-shadow) {
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,.3);
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+}
+
+.card-holder {
+    position: relative;
+}
+
+    .card-holder .image-holder {
+        position: relative;
+    }
+
+.lazy-container {
+    display: block;
+    position: relative;
+    height: 0;
+    padding-bottom: 76.5%;
+    background-color: #f6f2e4;
+}
+
+.image-holder img {
+    vertical-align: bottom;
+}
+
+.card-holder .card-box {
+    background: #fff;
+    padding: 15px 15px 20px;
+}
+
+.card-holder h3 {
+    position: relative;
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.rating-holder {
+    padding: 5px 0;
+}
+
+    .rating-holder i {
+        color: #70ab43;
+    }
+
+.card-holder p {
+    font-family: "Gentium Book Basic",serif;
+    padding-bottom: 5px;
+}
+
+.card-holder .meta {
+    color: #70ab43;
+    font-style: italic;
+}
+
+.read-more {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    border-bottom: 2px solid #70ab43;
+    letter-spacing: .05em;
+    color: #70ab43;
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 6;
+}
+
+.fa-camera:before {
+    content: "\f030";
+}
+
+body {
+    margin: 0;
+}
+
+.accordions {
+    font-family: arial;
+    /*width: 50%;*/
+    margin: 60px auto;
+}
+
+.accordion-item {
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .accordion-item .accordion-title {
+        cursor: pointer;
+        padding: 30px;
+        transition: all 0.4s;
+        border-radius: 5px 5px 0 0;
+    }
+
+        .accordion-item .accordion-title.active-title {
+            background-color: #d9232d !important;
+            color: #fff !important;
+        }
+
+        .accordion-item .accordion-title:not(:active) {
+            color: #d9232d;
+            background-color: #fff;
+        }
+
+        /*    .accordion-item .accordion-title.active-title:active {
+        background-color: #d9232d !important;
+        color: #fff !important;
+    }*/
+        /* .accordion-item .accordion-title:active {
+        background-color: #d9232d !important;
+        color: #fff !important;
+    }*/
+
+        .accordion-item .accordion-title h2 {
+            margin: 0;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .accordion-item .accordion-title i.fa-chevron-down {
+            transform: rotate(0);
+            transition: 0.4s;
+        }
+
+            .accordion-item .accordion-title i.fa-chevron-down.chevron-top {
+                transform: rotate(-180deg);
+            }
+
+    .accordion-item .accordion-content {
+        display: none;
+        line-height: 1.7;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 0 0 5px 5px;
+    }
+
+        .accordion-item .accordion-content.active {
+            display: block;
+        }
+
+        .accordion-item .accordion-content p {
+            margin: 0;
+        }
+.details-page {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    font-size: initial;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 5px 7px;
+}
+
+.details-page-select {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.details-page-select select, textarea {
+    padding: 5px;
+    background: white;
+}
+
+.container-fluid h2 {
+    font-size: 24px;
+}
+.tab-content > .active {
+    display: block;
+}
+.tab-content > .tab-pane {
+    display: none;
+}
+.tab-content > .active {
+    display: block;
+}
+.col-xs-6 {
+    width: 50%;
+}
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    float: left;
+}
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 700;
+}
+.col-xs-6 label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.col-xs-6 label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.pull-right {
+    float: right !important;
+}
+@media (min-width: 768px) {
+    .col-sm-2 {
+        width: 16.66666667%;
+    }
+}
+@media (min-width: 768px) {
+    .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+        float: left;
+    }
+}
+@media (min-width: 576px) {
+    .col-sm-2 {
+        -ms-flex: 0 0 16.666667%;
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+}
+@media (min-width: 768px) {
+    .col-sm-10 {
+        width: 83.33333333%;
+    }
+}
+@media (min-width: 576px) {
+    .col-sm-10 {
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col-xs-6 .h4, h4 {
+    font-size: 18px;
+}
+.col-xs-6 .h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.col-xs-6 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+.col-xs-12 {
+    width: 100%;
+}
+.book-tour .tour-currency-price p {
+    display: inline;
+    float: right;
+    font-family: "Open Sans",sans-serif;
+    font-size: 32px;
+    font-size: 2rem;
+    text-align: right;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .05em;
+    padding-bottom: 0;
+}

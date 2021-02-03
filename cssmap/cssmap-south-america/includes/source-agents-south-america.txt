@@ -1,0 +1,74 @@
+<div id="demo-agents">
+ <ul>
+  <li id="argentina">
+
+    <!-- Argentina -->
+
+  </li>
+  <li id="bolivia">
+
+    <!-- Bolivia -->
+
+  </li>
+  <li id="brazil">
+
+    <!-- Brazil -->
+
+  </li>
+  <li id="chile">
+
+    <!-- Chile -->
+
+  </li>
+  <li id="colombia">
+
+    <!-- Colombia -->
+
+  </li>
+  <li id="ecuador">
+
+    <!-- Ecuador -->
+
+  </li>
+  <li id="guyana">
+
+    <!-- Guyana -->
+
+  </li>
+  <li id="french-guiana">
+
+    <!-- Guyane (French Guiana) -->
+
+  </li>
+  <li id="paraguay">
+
+    <!-- Paraguay -->
+
+  </li>
+  <li id="peru">
+
+    <!-- Peru -->
+
+  </li>
+  <li id="suriname">
+
+    <!-- Suriname -->
+
+  </li>
+  <li id="uruguay">
+
+    <!-- Uruguay -->
+
+  </li>
+  <li id="venezuela">
+
+    <!-- Venezuela -->
+
+  </li>
+  <li id="falkland-islands">
+
+    <!-- Falkland Islands -->
+
+  </li>
+ </ul>
+</div>

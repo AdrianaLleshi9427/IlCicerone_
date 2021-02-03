@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "EmptyCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <div class='container'>
+        <div class='row' style='padding-top:25px; padding-bottom:25px;'>
+            <div class='col-md-12'>
+                <div id='mainContentWrapper'>
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 style="text-align: center;">
+                            Review Your Order & Complete Checkout
+                        </h2>
+                        <hr />
+                        <a href="#" class="btn btn-info" style="width: 100%;">Piepilogo Prenotazione</a>
+                        <hr />
+                        <div class="shopping_cart">
+                            @using (Html.BeginForm("Tour", "Home", new { @class = "form-horizontal needs-validation", @id = "payment-form" }, FormMethod.Get))
+                            {
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                    Non ci sono prenotazioni!
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <div class="items">
+                                                    Non hai ancora prenotato nessun tour. Ritorna alla lista dei tour e scegli la guida che fa per te.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    
+</main>
+<script>
+    (function () {
+        'use strict'
+
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        }, false)
+    }())
+</script>

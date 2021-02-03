@@ -1,0 +1,74 @@
+﻿@model IlCicerone.Models.TourCollection
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tour Collection</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TourCollectionTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourCollectionTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourCollectionDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourCollectionDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourCollectionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourCollectionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedCol_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedCol_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedCol_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedCol_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourColOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourColOwner)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TourCollectionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

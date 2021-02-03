@@ -1,0 +1,347 @@
+﻿@{
+    ViewBag.Title = "Maps";
+}
+<link rel="stylesheet" type="text/css" href="~/cssmap/cssmap-continents/cssmap-continents/cssmap-continents.css" media="screen" />
+<!-- CSSMap STYLESHEET - EUROPE -->
+<link rel="stylesheet" type="text/css" href="~/cssmap/cssmap-europe/cssmap-europe/cssmap-europe.css" media="screen" />
+<!-- CSSMap STYLESHEET - AUSTRALIA -->
+<link rel="stylesheet" type="text/css" href="~/cssmap/cssmap-australia/cssmap-australia/cssmap-australia.css" media="screen" />
+<!-- CSSMap STYLESHEET - AFRICA -->
+<link rel="stylesheet" type="text/css" href="~/cssmap/cssmap-africa/cssmap-africa/cssmap-africa.css" media="screen" />
+<!-- CSSMap STYLESHEET - SOUTH AMERICA -->
+<link rel="stylesheet" type="text/css" href="~/cssmap/cssmap-south-america/cssmap-south-america/cssmap-south-america.css" media="screen" />
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<main id="main">
+    <!-- ======= Contact Section ======= -->
+    <section>
+        <div class="container">
+            <!-- ======= Breadcrumbs ======= -->
+            <section id="breadcrumbs" class="breadcrumbs">
+                <ol style="float: right;">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>Maps</li>
+                </ol>
+            </section><!-- End Breadcrumbs -->
+            @using (Html.BeginForm("Tour", "Home", FormMethod.Get))
+            {
+                <input type="text" name="country" id="country" placeholder="Search country..." autocomplete="on" />
+                <button type="submit" class="btn-warning-search">Find a Tour</button>
+            }
+            <div id="map-continents">
+                <ul class="continents">
+                    <li class="c1"><a href="#africa">Africa</a></li>
+                    <li class="c2"><a href="#asia">Asia</a></li>
+                    <li class="c3"><a href="#australia">Australia</a></li>
+                    <li class="c4"><a href="#europe">Europe</a></li>
+                    <li class="c5"><a href="#north-america">North America</a></li>
+                    <li class="c6"><a href="#south-america">South America</a></li>
+                </ul>
+            </div>
+
+            <!-- CSSMap - Europe -->
+            <div id="map-europe">
+                <ul class="europe">
+                    <li class="eu1"><a href="#albania">Albania</a></li>
+                    <li class="eu2"><a href="#andorra">Andorra</a></li>
+                    <li class="eu3"><a href="#austria">Austria</a></li>
+                    <li class="eu4"><a href="#belarus">Belarus</a></li>
+                    <li class="eu5"><a href="#belgium">Belgium</a></li>
+                    <li class="eu6"><a href="#bosnia-and-herzegovina">Bosnia and Herzegovina</a></li>
+                    <li class="eu7"><a href="#bulgaria">Bulgaria</a></li>
+                    <li class="eu8"><a href="#croatia">Croatia</a></li>
+                    <li class="eu9"><a href="#cyprus">Cyprus</a></li>
+                    <li class="eu10"><a href="#czech-republic">Czech Republic</a></li>
+                    <li class="eu11"><a href="#denmark">Denmark</a></li>
+                    <li class="eu12"><a href="#estonia">Estonia</a></li>
+                    <li class="eu13"><a href="#france">France</a></li>
+                    <li class="eu14"><a href="#finland">Finland</a></li>
+                    <li class="eu15"><a href="#georgia">Georgia</a></li>
+                    <li class="eu16"><a href="#germany">Germany</a></li>
+                    <li class="eu17"><a href="#greece">Greece</a></li>
+                    <li class="eu18"><a href="#hungary">Hungary</a></li>
+                    <li class="eu19"><a href="#iceland">Iceland</a></li>
+                    <li class="eu20"><a href="#ireland">Ireland</a></li>
+                    <li class="eu21"><a href="#san-marino">San Marino</a></li>
+                    <li class="eu22"><a href="#italy">Italy</a></li>
+                    <li class="eu23"><a href="#kosovo">Kosovo</a></li>
+                    <li class="eu24"><a href="#latvia">Latvia</a></li>
+                    <li class="eu25"><a href="#liechtenstein">Liechtenstein</a></li>
+                    <li class="eu26"><a href="#lithuania">Lithuania</a></li>
+                    <li class="eu27"><a href="#luxembourg">Luxembourg</a></li>
+                    <li class="eu28"><a href="#macedonia">Macedonia <abbr title="The Former Yugoslav Republic of Macedonia">(F.Y.R.O.M.)</abbr></a></li>
+                    <li class="eu29"><a href="#malta">Malta</a></li>
+                    <li class="eu30"><a href="#moldova">Moldova</a></li>
+                    <li class="eu31"><a href="#monaco">Monaco</a></li>
+                    <li class="eu32"><a href="#montenegro">Montenegro</a></li>
+                    <li class="eu33"><a href="#netherlands">Netherlands</a></li>
+                    <li class="eu34"><a href="#norway">Norway</a></li>
+                    <li class="eu35"><a href="#poland">Poland</a></li>
+                    <li class="eu36"><a href="#portugal">Portugal</a></li>
+                    <li class="eu37"><a href="#romania">Romania</a></li>
+                    <li class="eu38"><a href="#russian-federation">Russian Federation</a></li>
+                    <li class="eu39"><a href="#serbia">Serbia</a></li>
+                    <li class="eu40"><a href="#slovakia">Slovakia</a></li>
+                    <li class="eu41"><a href="#slovenia">Slovenia</a></li>
+                    <li class="eu42"><a href="#spain">Spain</a></li>
+                    <li class="eu43"><a href="#sweden">Sweden</a></li>
+                    <li class="eu44"><a href="#switzerland">Switzerland</a></li>
+                    <li class="eu45"><a href="#turkey">Turkey</a></li>
+                    <li class="eu46"><a href="#ukraine">Ukraine</a></li>
+                    <li class="eu47"><a href="#united-kingdom">United Kingdom</a></li>
+                    <!--
+                      <li class="eu48"><a href="#england">England</a></li>
+                      <li class="eu49"><a href="#isle-of-man">Isle of Man</a></li>
+                      <li class="eu50"><a href="#northern-ireland">Northern Ireland</a></li>
+                      <li class="eu51"><a href="#scotland">Scotland</a></li>
+                      <li class="eu52"><a href="#wales">Wales</a></li>
+                    -->
+                </ul>
+            </div>
+            <!-- END OF THE CSSMap - Europe -->
+
+            <div id="map-australia">
+                <ul class="australia">
+                    <li class="au1"><a href="#canberra">Canberra</a></li>
+                    <li class="au2"><a href="#new-south-wales">New South Wales</a></li>
+                    <li class="au3"><a href="#northern-territory">Northern Territory</a></li>
+                    <li class="au4"><a href="#queensland">Queensland</a></li>
+                    <li class="au5"><a href="#south-australia">South Australia</a></li>
+                    <li class="au6"><a href="#tasmania">Tasmania</a></li>
+                    <li class="au7"><a href="#victoria">Victoria</a></li>
+                    <li class="au8"><a href="#western-australia">Western Australia</a></li>
+                </ul>
+            </div>
+            <!-- END OF THE CSSMap - Australia -->
+            <!-- CSSMap - Africa -->
+            <div id="map-africa">
+                <ul class="africa">
+                    <li class="afr1"><a href="#algeria">Algeria</a></li>
+                    <li class="afr2"><a href="#angola">Angola</a></li>
+                    <li class="afr3"><a href="#benin">Benin</a></li>
+                    <li class="afr4"><a href="#botswana">Botswana</a></li>
+                    <li class="afr5"><a href="#burkina-faso">Burkina Faso</a></li>
+                    <li class="afr6"><a href="#burundi">Burundi</a></li>
+                    <li class="afr7"><a href="#cameroon">Cameroon</a></li>
+                    <li class="afr8"><a href="#cape-verde" class="tooltip-middle">Cape Verde <small>(Portugal)</small></a></li>
+                    <li class="afr9"><a href="#canary-islands" class="tooltip-middle">Canary Islands <small>(Spain)</small></a></li>
+                    <li class="afr10"><a href="#central-african-republic">Central African Republic</a></li>
+                    <li class="afr11"><a href="#chad">Chad</a></li>
+                    <li class="afr12"><a href="#comoros" class="tooltip-middle">Comoros</a></li>
+                    <li class="afr13"><a href="#congo">Congo</a></li>
+                    <li class="afr14"><a href="#cote-d-ivoire">Côte d'Ivoire</a></li>
+                    <li class="afr15"><a href="#democratic-republic-of-the-congo">Democratic Republic of the Congo</a></li>
+                    <li class="afr16"><a href="#djibouti">Djibouti</a></li>
+                    <li class="afr17"><a href="#egypt">Egypt</a></li>
+                    <li class="afr18"><a href="#equatorial-guinea">Equatorial Guinea</a></li>
+                    <li class="afr19"><a href="#eritrea">Eritrea</a></li>
+                    <li class="afr20"><a href="#ethiopia">Ethiopia</a></li>
+                    <li class="afr21"><a href="#gabon">Gabon</a></li>
+                    <li class="afr22"><a href="#gambia">Gambia</a></li>
+                    <li class="afr23"><a href="#ghana">Ghana</a></li>
+                    <li class="afr24"><a href="#guinea">Guinea</a></li>
+                    <li class="afr25"><a href="#guinea-bisaau">Guinea-Bisaau</a></li>
+                    <li class="afr26"><a href="#kenya">Kenya</a></li>
+                    <li class="afr27"><a href="#lesotho">Lesotho</a></li>
+                    <li class="afr28"><a href="#liberia">Liberia</a></li>
+                    <li class="afr29"><a href="#libya">Libya</a></li>
+                    <li class="afr30"><a href="#madagascar">Madagascar</a></li>
+                    <li class="afr31"><a href="#madeira" class="tooltip-middle">Madeira <small>(Portugal)</small></a></li>
+                    <li class="afr32"><a href="#malawi">Malawi</a></li>
+                    <li class="afr33"><a href="#mali">Mali</a></li>
+                    <li class="afr34"><a href="#mauritania">Mauritania</a></li>
+                    <li class="afr35"><a href="#mauritius">Mauritius</a></li>
+                    <li class="afr36"><a href="#mayotte">Mayotte <small>(France)</small></a></li>
+                    <li class="afr37"><a href="#morocco">Morocco</a></li>
+                    <li class="afr38"><a href="#mozambique">Mozambique</a></li>
+                    <li class="afr39"><a href="#namibia">Namibia</a></li>
+                    <li class="afr40"><a href="#niger">Niger</a></li>
+                    <li class="afr41"><a href="#nigeria">Nigeria</a></li>
+                    <li class="afr42"><a href="#reunion">Réunion <small>(France)</small></a></li>
+                    <li class="afr43"><a href="#rwanda">Rwanda</a></li>
+                    <li class="afr44"><a href="#sahrawi-arab-democratic-republic">Sahrawi Arab Democratic Republic</a></li>
+                    <li class="afr45"><a href="#sao-tome-and-principe" class="tooltip-middle">São Tomé and Príncipe</a></li>
+                    <li class="afr46"><a href="#senegal">Senegal</a></li>
+                    <li class="afr47"><a href="#seychelles" class="tooltip-middle">Seychelles</a></li>
+                    <li class="afr48"><a href="#sierra-leone">Sierra Leone</a></li>
+                    <li class="afr49"><a href="#somalia">Somalia</a></li>
+                    <li class="afr50"><a href="#somaliland">Somaliland</a></li>
+                    <li class="afr51"><a href="#south-africa">South Africa</a></li>
+                    <li class="afr52"><a href="#south-sudan">South Sudan</a></li>
+                    <li class="afr53"><a href="#sudan">Sudan</a></li>
+                    <li class="afr54"><a href="#swaziland">Swaziland</a></li>
+                    <li class="afr55"><a href="#togo">Togo</a></li>
+                    <li class="afr56"><a href="#tunisia">Tunisia</a></li>
+                    <li class="afr57"><a href="#uganda">Uganda</a></li>
+                    <li class="afr58"><a href="#united-republic-of-tanzania">United Republic of Tanzania</a></li>
+                    <li class="afr59"><a href="#zambia">Zambia</a></li>
+                    <li class="afr60"><a href="#zimbabwe">Zimbabwe</a></li>
+                </ul>
+            </div>
+            <!-- END OF THE CSSMap - Africa -->
+            <!-- CSSMap - South America -->
+            <div id="map-south-america">
+                <ul class="south-america">
+                    <li class="sam1"><a href="#argentina">Argentina</a></li>
+                    <li class="sam2"><a href="#bolivia">Bolivia</a></li>
+                    <li class="sam3"><a href="#brazil">Brazil</a></li>
+                    <li class="sam4"><a href="#chile">Chile</a></li>
+                    <li class="sam5"><a href="#colombia">Colombia</a></li>
+                    <li class="sam6"><a href="#ecuador">Ecuador</a></li>
+                    <li class="sam7"><a href="#guyana">Guyana</a></li>
+                    <li class="sam8"><a href="#french-guiana">Guyane <small>(French Guiana)</small></a></li>
+                    <li class="sam9"><a href="#paraguay">Paraguay</a></li>
+                    <li class="sam10"><a href="#peru">Peru</a></li>
+                    <li class="sam11"><a href="#suriname">Suriname</a></li>
+                    <li class="sam12"><a href="#uruguay">Uruguay</a></li>
+                    <li class="sam13"><a href="#venezuela">Venezuela</a></li>
+                    <li class="sam14"><a href="#falkland-islands">Falkland Islands</a></li>
+                </ul>
+            </div>
+            <!-- END OF THE CSSMap - South America -->
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+<!-- CSSMap SCRIPT -->
+<script type="text/javascript" src="https://cssmapsplugin.com/5/jquery.cssmap.min.js"></script>
+<script type="text/javascript">
+    document.getElementById("map-europe").style.display = "none";
+    document.getElementById("map-australia").style.display = "none";
+    document.getElementById("map-africa").style.display = "none";
+    document.getElementById("map-south-america").style.display = "none";
+    var link;
+    // CSSMap;
+    var worldMap = $("#map-continents").CSSMap({
+        'size': 1450,
+        'onClick': function (e) {
+            link = e.children('a').attr('href');        // get link's URL;
+            var text = e.children('a').eq(0).text();       // get text of the link;
+            var className = e.attr('class').split(' ')[0];  // get class name of the list item
+
+            if (link == "#europe") {
+                document.getElementById("map-europe").style.display = "block";
+                document.getElementById("map-australia").style.display = "none";
+                document.getElementById("map-africa").style.display = "none";
+                document.getElementById("map-south-america").style.display = "none";
+            }
+            else if (link == "#australia") {
+                document.getElementById("map-australia").style.display = "block";
+                document.getElementById("map-africa").style.display = "none";
+                document.getElementById("map-europe").style.display = "none";
+                document.getElementById("map-south-america").style.display = "none";
+            }
+            else if (link == "#africa") {
+                document.getElementById("map-africa").style.display = "block";
+                document.getElementById("map-australia").style.display = "none";
+                document.getElementById("map-europe").style.display = "none";
+                document.getElementById("map-south-america").style.display = "none";
+            }
+            else if (link == "#south-america") {
+                document.getElementById("map-south-america").style.display = "block";
+                document.getElementById("map-africa").style.display = "none";
+                document.getElementById("map-australia").style.display = "none";
+                document.getElementById("map-europe").style.display = "none";
+            }
+            else {
+                document.getElementById("map-europe").style.display = "none";
+                document.getElementById("map-australia").style.display = "none";
+                document.getElementById("map-africa").style.display = "none";
+                document.getElementById("map-south-america").style.display = "none";
+            }
+        }
+
+    });
+</script>
+<!-- CSSMap SCRIPT -->
+<script type="text/javascript" src="~/cssmap/cssmap-europe/jquery.cssmap.min.js"></script>
+<script>
+    var mapEurope = $("#map-europe").CSSMap({
+        // MAP SIZE MUST BE SET;
+        "size": 960,
+
+        // OTHER OPTIONS;
+        "cities": true,
+        'onClick': function (e) {
+            link = e.children('a').attr('href');        // get link's URL;
+            var text = e.children('a').eq(0).text();       // get text of the link;
+            var className = e.attr('class').split(' ')[0];  // get class name of the list item
+            document.getElementById("country").value = text;
+            var linkRef = '@Url.Action("Tour", "Home", new { country = "default" })';
+            linkRef = linkRef.replace("default", text);
+            location.href = linkRef;
+        }
+    });
+</script>
+
+<script type="text/javascript" src="~/cssmap/cssmap-australia/jquery.cssmap.min.js"></script>
+<script type="text/javascript">
+    // CSSMap;
+    $("#map-australia").CSSMap({
+        "size": 960,
+        // OTHER OPTIONS;
+        "cities": true,
+        'onClick': function (e) {
+            var text = e.children('a').eq(0).text();       // get text of the link;
+            document.getElementById("country").value = text;
+            var linkRef = '@Url.Action("Tour", "Home", new { country = "default" })';
+            linkRef = linkRef.replace("default", text);
+            location.href = linkRef;
+        }
+
+    });
+    // END OF THE CSSMap;
+</script>
+
+<!-- CSSMap SCRIPT -->
+<script type="text/javascript" src="~/cssmap/cssmap-africa/jquery.cssmap.min.js"></script>
+<script type="text/javascript">
+    // CSSMap;
+    $("#map-africa").CSSMap({
+        "size": 960,
+        // OTHER OPTIONS;
+        "cities": true,
+        'onClick': function (e) {
+            var text = e.children('a').eq(0).text();       // get text of the link;
+            document.getElementById("country").value = text;
+            var linkRef = '@Url.Action("Tour", "Home", new { country = "default" })';
+            linkRef = linkRef.replace("default", text);
+            location.href = linkRef;
+        }
+    });
+    // END OF THE CSSMap;
+</script>
+
+<!-- CSSMap SCRIPT -->
+<script type="text/javascript" src="~/cssmap/cssmap-south-america/jquery.cssmap.min.js"></script>
+<script type="text/javascript">
+    // CSSMap;
+    $("#map-south-america").CSSMap({
+        "size": 960,
+        // OTHER OPTIONS;
+        "cities": true,
+        'onClick': function (e) {
+            var text = e.children('a').eq(0).text();       // get text of the link;
+            document.getElementById("country").value = text;
+            var linkRef = '@Url.Action("Tour", "Home", new { country = "default" })';
+            linkRef = linkRef.replace("default", text);
+            location.href = linkRef;
+        }
+    });
+    // END OF THE CSSMap;
+</script>
+<link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet" />
+<script src="~/AdminStyle/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="~/AdminStyle/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    jq162 = jQuery.noConflict(true);
+    jq162(function () {
+        jq162("#country").autocomplete({
+            source: '@Url.Action("GetCountry")',
+        });
+});
+</script>

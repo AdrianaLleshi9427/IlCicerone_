@@ -1,0 +1,16 @@
+﻿@model IlCicerone.Models.Tour
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Reviews for @Model.TourName</h2>
+
+@Html.Partial("_Reviews", @Model.Reviews)
+
+<p>
+    <a href="@Url.Action("Create", "Reviews", new { TourId = Model.TourId })" class="btn btn-success">
+        Add New Review
+        <span class="glyphicon glyphicon-plus-sign" />
+    </a>
+</p>

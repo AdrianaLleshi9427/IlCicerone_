@@ -1,0 +1,87 @@
+﻿@model IEnumerable<IlCicerone.Models.Category>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Tour List
+                </div>
+                <div class="card-body">
+                    <div class="card-header header-style">
+                        @using (Html.BeginForm("Categories", "Admin", FormMethod.Get))
+                        {
+                            <input type="text" name="txtSearch" placeholder="Search" />
+                            <button type="submit" class="btn-warning-admin">Search</button>
+                        }
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category Name</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @foreach (var category in ViewBag.Categories)
+                            {
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@category.CategoryName</td>
+                                    <td><a href="@Url.Action("EditCategory","Admin",new {id=category.CategoryId})" class="badge badge-warning">Modify</a></td>
+                                    <td><a href="@Url.Action("DeleteCategory","Admin",new {id=category.CategoryId})" class="badge badge-danger">Remove</a></td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                    <div class="card-footer">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                @{
+                                    int position;
+                                    int pageCurrent = ViewBag.pageCurrent;
+                                    string txtSearch = ViewBag.txtSearch;
+                                    float numSize = ViewBag.numSize;
+                                    if (pageCurrent > 1)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("Categories", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                        </li>
+                                    }
+                                    for (position = 1; position <= numSize; position++)
+                                    {
+                                        if (position == pageCurrent)
+                                        {
+                                            <li class="page-item active"><a class="page-link" href="@Url.Action("Categories", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><a class="page-link" href="@Url.Action("Categories", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                        }
+                                    }
+                                    if (pageCurrent > 0 && pageCurrent < numSize)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("Categories", "Admin", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

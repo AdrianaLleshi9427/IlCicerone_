@@ -1,0 +1,120 @@
+﻿@model IlCicerone.Models.Tour
+
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+@using (Html.BeginForm())
+{
+<p>
+    Select by Category: @Html.DropDownList("SelectedCategory", "All")
+    <input type="submit" value="Filter" />
+</p>}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-14">
+            <div class="card">
+                <div class="card-header">
+                    Tour List
+                </div>
+                <div class="card-body">
+                    <div class="card-body">
+                        <div class="card-header header-style">
+                            @using (Html.BeginForm("Index", "Tour", FormMethod.Get))
+                            {
+                <input type="text" name="txtSearch" placeholder="Search" />
+                                <button type="submit" class="btn-warning-admin">Search</button>}
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>User</th>
+                                    <th>Created_at</th>
+                                    <th>Published_at</th>
+                                    <th>Updated_at</th>
+                                    <th>End_at</th>
+                                    <th>Image</th>
+                                    <th>Status</th>
+                                    <th>Gallery</th>
+                                    <th>Edit</th>
+                                    <th>Details</th>
+                                    <th>Delete</th>
+                                    <th>Reviews</th>
+                                    <th>Partecipants</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int i = 1; }
+                                @foreach (var tour in ViewBag.Tours)
+                                {
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@tour.TourName</td>
+                                    <td>@tour.Description</td>
+                                    <td>@tour.UserId</td>
+                                    <td>@tour.Create_date</td>
+                                    <td>@tour.Publication_date</td>
+                                    <td>@tour.Updated_at</td>
+                                    <td>@tour.End_date</td>
+                                    <td>
+                                        <img style="width: 100px; height: auto;" alt="@tour.TourName" src="@Url.Content("~/Images/Tour/" + @tour.TourImage)" />
+                                    </td>
+                                    <td>@tour.Status</td>
+                                    <td><a href="@Url.Action("Index","Image",new {id=tour.TourId})" class="badge badge-warning">Gallery</a></td>
+                                    <td><a href="@Url.Action("Edit","Tour",new {id=tour.TourId})" class="badge badge-warning">Modify</a></td>
+                                    <td><a href="@Url.Action("Details","Tour",new { id = tour.TourId })" class="badge badge-warning">Details</a></td>
+                                    <td><a href="@Url.Action("Delete","Tour",new {id=tour.TourId})" class="badge badge-danger">Remove</a></td>
+                                    <td>
+                                        <a href="@Url.Action("Index", "Reviews", new { id = tour.TourId })" class="btn btn-info">
+                                            Reviews
+                                            <span class="glyphicon glyphicon-asterisk" />
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Index", "Partecipants", new { id = tour.TourId })" class="btn btn-info">
+                                            Partecipants
+                                            <span class="glyphicon glyphicon-asterisk" />
+                                        </a>
+                                    </td>
+                                </tr>i++;
+                                }
+                            </tbody>
+                        </table>
+                        <div class="card-footer">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    @{ int position;
+                                                    int pageCurrent = ViewBag.pageCurrent;
+                                                    string txtSearch = ViewBag.txtSearch;
+                                                    float numSize = ViewBag.numSize;
+                                                    if (pageCurrent > 1)
+                                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("Index", "Tour", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                        </li> }
+                                                    for (position = 1; position <= numSize; position++)
+                                                    {
+                                                        if (position == pageCurrent)
+                                                        {
+                                        <li class="page-item active"><a class="page-link" href="@Url.Action("Index", "Tour", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li> }
+                                                        else
+                                                        {
+                                        <li class="page-item"><a class="page-link" href="@Url.Action("Index", "Tour", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li> }
+                                                    }
+                                                    if (pageCurrent > 0 && pageCurrent < numSize)
+                                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("Index", "Tour", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                        </li> } }
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

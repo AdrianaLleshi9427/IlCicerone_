@@ -1,0 +1,170 @@
+﻿@model IlCicerone.Models.Tour
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Create</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Add Article
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "Tour", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label>Tour Name</label>
+                            @Html.TextBoxFor(m => m.TourName, new { @class = "form-control", @placeholder = "Title" })
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="CategoryId">Category</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            @Html.TextBoxFor(m => m.CityId, new { @class = "form-control", @placeholder = "description" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.TourImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="file" name="file" />
+                                @Html.ValidationMessageFor(m => m.TourImage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @placeholder = "description" })
+                        </div>
+                        <div class="form-group">
+                            <label>Story</label>
+                            @Html.TextAreaFor(m => m.Story, new { @class = "form-control", @placeholder = "Story" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Art and Culture</label>
+                            @Html.TextAreaFor(m => m.ArtandCulture, new { @class = "form-control", @placeholder = "ArtandCulture" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Entertainment and Recreation</label>
+                            @Html.TextAreaFor(m => m.EntertainmentandRecreation, new { @class = "form-control", @placeholder = "EntertainmentandRecreation" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>What to visit and excursions</label>
+                            @Html.TextAreaFor(m => m.Whattovisitandexcursions, new { @class = "form-control", @placeholder = "Whattovisitandexcursions" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gastronomy</label>
+                            @Html.TextAreaFor(m => m.Gastronomy, new { @class = "form-control", @placeholder = "Gastronomy " })
+                        </div>
+
+                        <div class="form-group">
+                            <label>How and when to arrive</label>
+                            @Html.TextAreaFor(m => m.Howandwhentoarrive, new { @class = "form-control", @placeholder = "Howandwhentoarrive" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="CurrencyId">Currency</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("CurrencyId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CurrencyId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ActivityLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ActivityLevel, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActivityLevel, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LanguageId, "LanguageId", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("LanguageId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Publication_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Publication_date, "{0:dd/MMM/yyyy HH:mm}", new { @class = "form-control", type = "datetime-local" })
+                                @Html.ValidationMessageFor(model => model.Publication_date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.End_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.End_date, "{0:dd/MMM/yyyy HH:mm}", new { @class = "form-control", type = "datetime-local" })
+                                @Html.ValidationMessageFor(model => model.End_date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating</label>
+                            @Html.TextBoxFor(m => m.Rating, new { @class = "form-control", @placeholder = "description" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.CheckBox("IsActive")
+                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TourOwner, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TourOwner, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TourOwner, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" value="Add Tour" class="btn btn-success" />
+                            @if (ViewBag.message != "")
+                            {
+                                <span class="badge badge-danger">@ViewBag.message</span>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

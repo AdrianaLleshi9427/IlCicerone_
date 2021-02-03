@@ -1,0 +1,107 @@
+﻿@model PagedList.IPagedList
+<IlCicerone.Models.Tour>
+    @using PagedList.Mvc;
+    @{
+        ViewBag.Title = "Tour";
+    }
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div style="padding-top:60px;">
+                        @using (Html.BeginForm("Tour", "Home", FormMethod.Get))
+                        {
+                            <input type="text" name="txtSearch" placeholder="Search Tour" />
+                            <button type="submit" class="btn-warning-search">Search</button>
+                        }
+                    </div>
+                    <ol>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>Tour</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!-- End Breadcrumbs -->
+        <!-- ======= Blog Section ======= -->
+        <section id="blog" class="blog">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in ViewBag.Tours)
+                    {
+                        <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                            <article class="entry">
+                                <div class="entry-img">
+                                    <img src="~/Images/Tour/@item.TourImage" alt="" class="img-fluid">
+                                </div>
+                                <h2 class="entry-title">
+                                    <a href='@Url.Action("TourDetails", "Home",  new { TourId = item.TourId })'>
+                                        @item.TourName
+                                    </a>
+                                </h2>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">@item.UserId</a></li>
+                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">@item.Publication_date</time></a></li>
+                                        <li class="d-flex align-items-center"><i class="icofont-world"></i> <a href="blog-single.html">@item.CategoryId</a></li>
+                                        <li class="d-flex align-items-center"><i class="icofont-location-pin"></i> <a href="blog-single.html">@item.CityId</a></li>
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                    <div class="read-more">
+                                        @Html.ActionLink("Leggi di piu", "TourDetails", new { TourId = item.TourId })
+                                        @*@Html.ActionLink("Prenota", "TourDetails", new { TourId = item.TourId }, new { @class = "partecipate" })*@
+                                        <a href="@Url.Action("Index", "PartecipantClient", new { id = item.TourId })" class="partecipate">
+                                            Prenota
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                            <!-- End blog entry -->
+                        </div>
+                    }
+                </div>
+                <div class="blog-pagination">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            @{
+                                int position;
+                                int pageCurrent = ViewBag.pageCurrent;
+                                string txtSearch = ViewBag.txtSearch;
+                                float numSize = ViewBag.numSize;
+                                if (pageCurrent > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="" href="@Url.Action("Tour", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                    </li>
+                                }
+                                for (position = 1; position <= numSize; position++)
+                                {
+                                    if (position == pageCurrent)
+                                    {
+                                        <li class="page-item active"><a class="" href="@Url.Action("Tour", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item"><a class="" href="@Url.Action("Tour", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                    }
+                                }
+                                if (pageCurrent > 0 && pageCurrent < numSize)
+                                {
+                                    <li class="page-item">
+                                        <a class="" href="@Url.Action("Tour", "Home", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <!-- End Blog Section -->
+    </main>
+    <!-- End #main -->
